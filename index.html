@@ -25,16 +25,18 @@
           is appreciated to help us improve our offering!
         </p>
         <ul class="rating">
-          <li class="rating-btn" v-for="number in ratingNumbers" :key="number"
-          v-on="changeBackgroud(number)">{{ number }}</li>
+          <li class="rating-btn" 
+          v-for="ratingNumber in ratingNumbers"
+          @click="changeBackgroud(ratingNumbers, ratingNumber, event)"
+          v-bind:style= "(ratingNumber.isActive == true) ? activeStyle : ' ',{'background' : 'color = hsla(216, 12%, 54%, 0.2)'}">{{ ratingNumber.number }}</li>
         </ul>
-        <button>SUBMIT</button>
+        <button @click="changeRate()">SUBMIT</button>
       </article>
       <article class="rating-thanks">
         <div class="imag-thanks-container">
           <img src="./images/illustration-thank-you.svg" alt="thank you" />
         </div>
-        <p class="rating-selected-info">You selected {{rate}} out of 5</p>
+        <p class="rating-selected-info">You selected {{ rate }} out of 5</p>
         <h2>Thank you!</h2>
         <p class="text-info-thank">
           We appreciate you taking the time to give a rating. If you ever need
