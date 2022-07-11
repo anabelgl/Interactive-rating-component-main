@@ -116,9 +116,9 @@ button {
   letter-spacing: 1.5px;
 }
 
-/* .rating-content {
-  display: none;
-} */
+button:hover {
+  cursor: pointer;
+} 
 
 .rating-selected-info{
     color: var(--orange);
