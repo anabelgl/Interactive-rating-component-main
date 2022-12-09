@@ -14,24 +14,20 @@ createApp({
         backgroundColor: "hsl(25, 97%, 53%)",
         color: "hsl(0, 0%, 100%)",
       },
+      click: false
     };
   },
   methods: {
     changeBackgroud(ratingNumbers, ratingNumber, event) {
       ratingNumber.isActive = ratingNumber.isActive == true ? false : true;
-
+      this.rate = ratingNumber.number;
       for (let i = 0; i < ratingNumbers.length; i++) {
         if (
-          ratingNumbers[i].isActive == true &&
-          ratingNumbers[i].number != ratingNumber.number
-        ) {
+          ratingNumbers[i].isActive == true && ratingNumbers[i].number != ratingNumber.number) {
           ratingNumbers[i].isActive = false;
         }
       }
-      console.log(rate);
+      console.log(ratingNumbers)
     },
-    changeRate(){
-        rate = ratingNumber.number;
-    }
   },
 }).mount("#app");

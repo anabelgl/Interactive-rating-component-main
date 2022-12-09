@@ -118,6 +118,8 @@ button {
 
 button:hover {
   cursor: pointer;
+  background-color: var(--white);
+  color: var(--orange);
 } 
 
 .rating-selected-info{

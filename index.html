@@ -10,7 +10,7 @@
   </head>
   <body>
     <main id="app">
-      <article class="rating-content">
+      <article class="rating-content" v-show="!click">
         <div class="content-rating-star rating-btn">
           <img
             class="icon-star"
@@ -28,11 +28,11 @@
           <li class="rating-btn" 
           v-for="ratingNumber in ratingNumbers"
           @click="changeBackgroud(ratingNumbers, ratingNumber, event)"
-          v-bind:style= "(ratingNumber.isActive == true) ? activeStyle : ' ',{'background' : 'color = hsla(216, 12%, 54%, 0.2)'}">{{ ratingNumber.number }}</li>
+          :style= "(ratingNumber.isActive == true) ? activeStyle : ' ',{'background' : 'color = hsla(216, 12%, 54%, 0.2)'}">{{ ratingNumber.number }}</li>
         </ul>
-        <button @click="changeRate()">SUBMIT</button>
+        <button @click="(this.click=true)" :disabled="rate == ''">SUBMIT</button>
       </article>
-      <article class="rating-thanks">
+      <article class="rating-thanks" v-show="click">
         <div class="imag-thanks-container">
           <img src="./images/illustration-thank-you.svg" alt="thank you" />
         </div>
